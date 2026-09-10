@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RS Howell — Games</title>
+<style>
+  body{
+    margin:0;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background:#FFF7EC;
+    color:#3A2E28;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+  }
+  .wrap{ max-width:480px; text-align:center; }
+  h1{ font-size:1.8rem; margin-bottom:4px; }
+  p{ color:#a8998c; margin-top:0; }
+  .game-card{
+    display:block;
+    background:white;
+    border-radius:16px;
+    padding:20px;
+    margin-top:24px;
+    text-decoration:none;
+    color:#3A2E28;
+    box-shadow:0 4px 16px rgba(58,46,40,0.08);
+  }
+  .game-card h2{ margin:0 0 6px; font-size:1.2rem; }
+  .game-card p{ margin:0; font-size:0.9rem; }
+  #banner-ad-container{ margin-top:28px; display:none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>RS Howell Games</h1>
+
+  <a class="game-card" href="/kitten-reflex/">
+    <h2>🐱 Kitten Reflex</h2>
+    <p>A reaction-time game — wait for the kitten, tap anywhere. 5 levels, from simple to genuinely brutal.</p>
+  </a>
+
+  <a class="game-card" href="/matching-menagerie/">
+    <h2>🐧🦁 Matching Menagerie</h2>
+    <p>A cute animal memory-matching game — flip two, find the pair, clear the board. 5 board sizes, from Small to Huge.</p>
+  </a>
+
+  <a class="game-card" href="/sum-practice/">
+    <h2>➕ Sum Practice</h2>
+    <p>An addition practice game for kids — practice by level or by a specific number's facts, multiple choice or type-the-answer. Earn trophies for mastering each fact.</p>
+  </a>
+
+  <!-- More games get their own card here as they're built -->
+
+  <!--
+    AD BANNER — same pattern as the games: ads only turn on
+    automatically when this file is running on an approved domain
+    (see AD_APPROVED_HOSTNAMES below). Since this page IS
+    rs-howell.github.io itself, it qualifies the same way the
+    games do — no separate setup needed.
+  -->
+  <div id="banner-ad-container">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-4487737891087396"
+         data-ad-slot="9333483932"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+  </div>
+
+  <p style="margin-top:28px; font-size:0.8rem; color:#a8998c;" id="copyright-line"></p>
+</div>
+
+<script>
+  const AD_APPROVED_HOSTNAMES = ['rs-howell.github.io'];
+  const adsAllowedHere = AD_APPROVED_HOSTNAMES.includes(window.location.hostname);
+
+  function enableBannerAds(){
+    const loader = document.createElement('script');
+    loader.async = true;
+    loader.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4487737891087396';
+    loader.crossOrigin = 'anonymous';
+    document.head.appendChild(loader);
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
+  }
+
+  if(adsAllowedHere){
+    document.getElementById('banner-ad-container').style.display = 'block';
+    enableBannerAds();
+  }
+
+  document.getElementById('copyright-line').textContent =
+    `© ${new Date().getFullYear()} RS Howell. All rights reserved.`;
+</script>
+</body>
+</html>
