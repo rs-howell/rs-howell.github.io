@@ -20,17 +20,52 @@
   h1{ font-size:1.8rem; margin-bottom:4px; }
   p{ color:#a8998c; margin-top:0; }
   .game-card{
-    display:block;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    box-sizing:border-box;
+    min-height:100px;
     background:white;
     border-radius:16px;
-    padding:20px;
+    padding:14px 16px;
     margin-top:24px;
     text-decoration:none;
     color:#3A2E28;
     box-shadow:0 4px 16px rgba(58,46,40,0.08);
   }
-  .game-card h2{ margin:0 0 6px; font-size:1.2rem; }
-  .game-card p{ margin:0; font-size:0.9rem; }
+  .game-card h2{ margin:0 0 6px; font-size:1.35rem; line-height:1.25; min-height:2.5em; display:flex; align-items:center; justify-content:center; }
+  .game-card p{ margin:0; font-size:1rem; }
+  .section-heading{
+    margin:20px 0 0;
+    font-size:0.95rem;
+    font-weight:700;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:#a8998c;
+    text-align:left;
+  }
+  /* The gap under a label comes from the first tile's own margin-top
+     (adjacent margins collapse to the larger one) — target that tile
+     specifically so only label-to-tile spacing shrinks, not the
+     normal spacing between the two tiles within a section. */
+  .section-heading + .game-card{ margin-top:10px; }
+  /* Less gap right under the H1 for whichever section comes first —
+     stacked (mobile) or side-by-side (desktop) both handled below. */
+  .section:first-child .section-heading{ margin-top:8px; }
+
+  /* Mobile-first: sections stack top-to-bottom by default. At wider
+     widths (desktop/tablet, not just "not a phone"), they switch to
+     side-by-side columns instead — this is a viewport-width check,
+     not real device detection, but width is what actually matters. */
+  .sections{ display:flex; flex-direction:column; }
+  @media (min-width:700px){
+    .wrap{ max-width:820px; }
+    .sections{ flex-direction:row; align-items:flex-start; gap:32px; }
+    .section{ flex:1; min-width:0; }
+    /* Side-by-side means both columns start at the same height, so
+       neither one is "first" in the stacked sense anymore. */
+    .section-heading{ margin-top:8px; }
+  }
   #banner-ad-container{ margin-top:28px; display:none; }
 </style>
 </head>
@@ -38,22 +73,39 @@
 <div class="wrap">
   <h1>RS Howell Games</h1>
 
-  <a class="game-card" href="/kitten-reflex/">
-    <h2>🐱 Kitten Reflex</h2>
-    <p>A reaction-time game — wait for the kitten, tap anywhere. 5 levels, from simple to genuinely brutal.</p>
-  </a>
+  <div class="sections">
+    <div class="section">
+      <h2 class="section-heading">Casual</h2>
 
-  <a class="game-card" href="/matching-menagerie/">
-    <h2>🐧🦁 Matching Menagerie</h2>
-    <p>A cute animal memory-matching game — flip two, find the pair, clear the board. 5 board sizes, from Small to Huge.</p>
-  </a>
+      <a class="game-card" href="/kitten-reflex/">
+        <h2>🐱 Kitten Reflex</h2>
+        <p>Reaction-time challenge</p>
+      </a>
 
-  <a class="game-card" href="/sum-practice/">
-    <h2>➕ Sum Practice</h2>
-    <p>An addition practice game for kids — practice by level or by a specific number's facts, multiple choice or type-the-answer. Earn trophies for mastering each fact.</p>
-  </a>
+      <a class="game-card" href="/matching-menagerie/">
+        <h2>🐧🦁 Matching Menagerie</h2>
+        <p>Animal-themed tile matching</p>
+      </a>
 
-  <!-- More games get their own card here as they're built -->
+      <!-- More casual games get their own card here as they're built -->
+    </div>
+
+    <div class="section">
+      <h2 class="section-heading">Educational</h2>
+
+      <a class="game-card" href="/sum-practice/">
+        <h2>➕ Sum Practice</h2>
+        <p>Addition practice</p>
+      </a>
+
+      <a class="game-card" href="/times-tables/">
+        <h2>✖️ Times Tables</h2>
+        <p>Multiplication practice</p>
+      </a>
+
+      <!-- More educational games get their own card here as they're built -->
+    </div>
+  </div>
 
   <!--
     AD BANNER — same pattern as the games: ads only turn on
