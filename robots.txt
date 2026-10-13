@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rs-howell.github.io/sitemap.xml
