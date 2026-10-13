@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — RS Howell Games</title>
+<style>
+  body{
+    margin:0;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background:#FFF7EC;
+    color:#3A2E28;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+  }
+  .wrap{ max-width:480px; }
+  h1{ font-size:1.6rem; margin:0 0 4px; text-align:center; }
+  .subtitle{ color:#a8998c; text-align:center; margin:0 0 24px; }
+  .card{
+    background:white;
+    border-radius:16px;
+    padding:22px;
+    box-shadow:0 4px 16px rgba(58,46,40,0.08);
+    line-height:1.6;
+  }
+  .card p{ margin:0 0 14px; }
+  .card p:last-child{ margin-bottom:0; }
+  a.link{ color:#3A2E86; font-weight:600; text-decoration:none; }
+  a.link:hover{ text-decoration:underline; }
+  .changelog{ margin-top:20px; }
+  .changelog h2{ font-size:1.05rem; margin:0 0 10px; }
+  .changelog-entry{ margin-bottom:14px; }
+  .changelog-entry:last-child{ margin-bottom:0; }
+  .changelog-date{ font-size:0.75rem; font-weight:700; color:#a8998c; text-transform:uppercase; letter-spacing:0.04em; }
+  .changelog-entry p{ margin:2px 0 0; }
+  .back-link{
+    display:block;
+    text-align:center;
+    margin-top:22px;
+    color:#a8998c;
+    font-size:0.9rem;
+    text-decoration:none;
+  }
+  .back-link:hover{ text-decoration:underline; }
+  .footer-links{ margin-top:18px; font-size:0.85rem; color:#a8998c; text-align:center; }
+  .footer-links a{ color:#a8998c; font-weight:600; text-decoration:underline; }
+  p.copyright{ margin-top:28px; font-size:0.8rem; color:#a8998c; text-align:center; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>About RS Howell Games</h1>
+  <p class="subtitle">A small, growing collection of browser games</p>
+
+  <div class="card">
+    <p>These games are built one at a time, for fun and for learning — some just for play, some to help with practicing real skills like addition and multiplication.</p>
+    <p>Questions, feedback, or just want to say hi? <a class="link" href="mailto:rshowellgames@gmail.com">rshowellgames@gmail.com</a></p>
+    <p><a class="link" href="/privacy.html">Privacy Policy</a></p>
+  </div>
+
+  <div class="card changelog">
+    <h2>What's New</h2>
+    <div class="changelog-entry">
+      <div class="changelog-date">September 2026</div>
+      <p>Site launched with four games: Kitten Reflex, Matching Menagerie, Sum Practice, and Times Tables. Added player profiles, practice tracking, and mastery badges to the two math games.</p>
+    </div>
+  </div>
+
+  <a class="back-link" href="/">← Back to Games</a>
+  <p class="footer-links">
+    <a href="/about.html">About</a> &nbsp;·&nbsp; <a href="/privacy.html">Privacy</a> &nbsp;·&nbsp; <a href="mailto:rshowellgames@gmail.com">Contact</a>
+  </p>
+  <p class="copyright" id="copyright-line"></p>
+</div>
+
+<script>
+  document.getElementById('copyright-line').textContent =
+    `© ${new Date().getFullYear()} RS Howell. All rights reserved.`;
+</script>
+</body>
+</html>
